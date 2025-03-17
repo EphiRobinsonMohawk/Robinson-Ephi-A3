@@ -9,5 +9,17 @@ namespace MohawkGame2D
 {
     public class CatchBar
     {
-    }
+
+
+
+
+        public void Render(float position)
+        {
+            Draw.FillColor = Color.Green;
+            Draw.Rectangle(120, position, 80, 40);
+
+        }
+    } 
+
+    
 }
