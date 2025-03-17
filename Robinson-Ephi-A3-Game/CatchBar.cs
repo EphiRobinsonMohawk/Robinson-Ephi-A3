@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Security;
 
 namespace MohawkGame2D
 {
@@ -12,11 +13,10 @@ namespace MohawkGame2D
 
 
 
-
-        public void Render(float position)
+        public void Render(float y)
         {
             Draw.FillColor = Color.Green;
-            Draw.Rectangle(120, position, 80, 40);
+            Draw.Rectangle(120, y, 80, 40);
 
         }
     } 
