@@ -11,12 +11,21 @@ namespace MohawkGame2D;
 public class Game
 {
     // Place your variables here:
-    // Normal variables
     Color oceanBlue = new Color(0, 157, 196);
+
+    //Bar Variables
     float barHeight;
-    float fishHeight = 300; //where the fish initially spawns
     float barSpeed = 4; //how fast the bar drops
     float barVelocity;
+    //Fish Variables
+    float fishHeight;
+    float fishSpeed;
+    bool goingDown = true;
+    float switchTime;
+    float switchInterval;
+    float catchProgress;
+    float catchDistance;
+
 
     //Class variables
     Fish fish;
@@ -27,14 +36,20 @@ public class Game
     {
         Window.SetTitle("Fantastic Fishing");
         Window.SetSize(400, 600);
+        //Random spawn points for bar and fish
         barHeight = Random.Integer(40, 540);
+        fishHeight = Random.Integer(100, 300);
+        switchInterval = Random.Float(3, 5);
+        fishSpeed = 70;
 
+        //Making the fish and bar EXIST (not be null >:(  )
         fish = new Fish();
         catchBar = new CatchBar(); 
     }
     
     public void Update()
     {
+        catchDistance = fishHeight - barHeight;
         Window.ClearBackground(oceanBlue);
 
         //Background bar for catching fish
@@ -47,14 +62,59 @@ public class Game
         //Update position based on velocity
         barHeight += barVelocity;
 
-        //Detect at edge
+        //Detect at edge and kill velocity at edge
         bool isAtEdge = barHeight + 40 >= Window.Height;
         if (isAtEdge)
         {
-            barVelocity = -0.3f;
+            barVelocity = -0.2f;
         }
 
-        if ()
+        //Make the bar go up when the player presses space
+        if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+        {
+            barVelocity = -2.0f;
+        }
+
+        //Make the fish move up and down
+        if (goingDown == true)
+        {
+            fishHeight += Time.DeltaTime * (fishSpeed);
+        }
+        if (goingDown == false)
+        {
+            fishHeight -= Time.DeltaTime * (fishSpeed);
+        }
+        //check which the fish needs to switch directions
+        switchTime += Time.DeltaTime;
+        if (switchTime >= switchInterval && goingDown == false)
+        {
+            switchTime = 0;
+            goingDown = true;
+            switchInterval = Random.Float(1.5f, 4.5f);
+        }
+
+        if (switchTime >= switchInterval && goingDown == true)
+        {
+            switchTime = 0;
+            goingDown = false;
+            switchInterval = Random.Float(1.5f, 4.5f);
+        }
+        //switches the fish's direction if it hits the edges
+        if (fishHeight <= 0)
+        {
+            goingDown = true;
+        }
+
+        if (fishHeight >= 550)
+        {
+            goingDown = false;
+        }
+
+
+        if (catchDistance <= 40 && catchDistance >= -40 && catchProgress <= 5.03f)
+        {
+            catchProgress += Time.DeltaTime;
+        }
 
 
         //Drawing the key moving objects to screen
