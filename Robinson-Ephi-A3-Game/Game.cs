@@ -12,6 +12,7 @@ public class Game
 {
     // Place your variables here:
     Color oceanBlue = new Color(0, 157, 196);
+    Color cucumber = new Color(58, 176, 158);
 
     //Bar Variables
     float barHeight;
@@ -25,12 +26,13 @@ public class Game
     float switchInterval;
     float catchProgress;
     float catchDistance;
+    bool hasWon = false;
 
 
     //Class variables
     Fish fish;
     CatchBar catchBar;
-    //CatchProgress catchProgress;
+    CatchProgress catchProgression;
 
     public void Setup()
     {
@@ -44,7 +46,8 @@ public class Game
 
         //Making the fish and bar EXIST (not be null >:(  )
         fish = new Fish();
-        catchBar = new CatchBar(); 
+        catchBar = new CatchBar();
+        catchProgression = new CatchProgress();
     }
     
     public void Update()
@@ -116,10 +119,34 @@ public class Game
             catchProgress += Time.DeltaTime;
         }
 
+        if (catchProgress >= 5)
+        {
+            hasWon = true;
+        }
+
+        if (catchProgress > 0 && hasWon != true)
+        {
+            catchProgress -= Time.DeltaTime / 2;
+        }
+
 
         //Drawing the key moving objects to screen
         catchBar.Render(barHeight);
         fish.Render(120, fishHeight);
+        catchProgression.Render(260, 40, catchProgress);
+
+        Text.Size = 16;
+        Text.Draw("Catch Progress", 260, 24);
+
+        if (hasWon == true)
+        {
+            Draw.FillColor = cucumber;
+            Draw.Rectangle(0, 0, Window.Width, Window.Height);
+            Text.Size = 30;
+            Text.Draw("YOU WIN", 50, 50);
+            Text.Size = 20;
+            Text.Draw("YOU CAUGHT A BLUE BUCKO!", 50, 100);
+        }
     }
     
    
