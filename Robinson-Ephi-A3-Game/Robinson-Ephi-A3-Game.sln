@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robinson-Ephi-A3-Game", "Robinson-Ephi-A3-Game.csproj", "{FEBBCEA1-5707-4EBC-A888-5BF3649FF517}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robinson-Ephi-A3-Game", "Robinson-Ephi-A3-Game.csproj", "{A8B0CCF6-8C1E-4ACD-85CF-E1D4A1F9158D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FEBBCEA1-5707-4EBC-A888-5BF3649FF517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEBBCEA1-5707-4EBC-A888-5BF3649FF517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEBBCEA1-5707-4EBC-A888-5BF3649FF517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEBBCEA1-5707-4EBC-A888-5BF3649FF517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B0CCF6-8C1E-4ACD-85CF-E1D4A1F9158D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B0CCF6-8C1E-4ACD-85CF-E1D4A1F9158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B0CCF6-8C1E-4ACD-85CF-E1D4A1F9158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B0CCF6-8C1E-4ACD-85CF-E1D4A1F9158D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A8CD1399-BFD4-47F0-8A11-6861CB931D99}
+		SolutionGuid = {45F5839B-CAF8-42FA-99B6-78CB159D8E1F}
 	EndGlobalSection
 EndGlobal
