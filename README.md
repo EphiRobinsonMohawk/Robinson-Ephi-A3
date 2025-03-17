@@ -1,2 +1,2 @@
 # Robinson-Ephi-A3
-Ephi Robinson's Submission for Assignment 3: 2D Game Project
+Press spacebar to move the green catching bar up, hold the catching bar on the fish to reel it in and catch it!
