@@ -15,6 +15,7 @@ public class Game
     Color lightBlue = new Color(170, 192, 216);
     Color darkBlue = new Color(95, 148, 179);
     Color eyeOrange = new Color(248, 190, 56);
+    Color transparant = new Color(0, 0, 0, 0);
 
     public void Setup()
     {
@@ -25,17 +26,26 @@ public class Game
     public void Update()
     {
         Window.ClearBackground(oceanBlue);
-        spawnFish(0,0);
+        //Background bar for catching fish
+        Draw.FillColor = Color.Blue;
+        Draw.Rectangle(120, 0, 80, 600);
+
+        spawnFish(120, 200);
+
+        spawnCatchBar(0, 0);
+    }
+    void spawnCatchBar(float x, float y)
+    {
+        Draw.FillColor = Color.Green;
+        Draw.Rectangle(120, 300, 80, 40);
+
     }
 
     //Function to draw a fish
     void spawnFish(float x,float y)
     {
+        Draw.LineColor = transparant;
         
-        //Front Fin
-        Draw.FillColor = darkBlue;
-        Draw.Triangle(x + 38, y + 32, x + 52, y + 36, x + 44, y + 42);
-
         //Tail Fin
         Draw.FillColor = darkBlue;
         Draw.Triangle(x + 64, y + 26, x + 74, y + 16, x + 74, y + 38);
@@ -43,12 +53,18 @@ public class Game
         //Nose
         Draw.FillColor = lightBlue;
         Draw.Triangle(x + 15, y + 25, x + 30, y + 13, x + 30, y + 37);
+
         //Butt
         Draw.FillColor = lightBlue;
-        Draw.Triangle(x + 54, y + 18, x + 32, y + 18, x + 68, y + 26);
+        Draw.Triangle(x + 47, y + 12, x + 47, y + 38, x + 68, y + 26);
+
         //Body
         Draw.FillColor = lightBlue;
-        Draw.Ellipse(x + 39, y + 25, 14, 17);
+        Draw.Ellipse(x + 39, y + 25, 28, 30);
+
+        //Front Fin
+        Draw.FillColor = darkBlue;
+        Draw.Triangle(x + 38, y + 32, x + 52, y + 40, x + 40, y + 42);
 
         //Eye Outer
         Draw.FillColor = eyeOrange;
@@ -56,7 +72,13 @@ public class Game
 
         //Eye Inner
         Draw.FillColor = Color.Black;
-        Draw.Circle(x + 25, 23, 1);
+        Draw.Circle(x + 25, y + 23, 1);
+
+        //Gills
+        Draw.FillColor = darkBlue;
+        Draw.Rectangle(x + 36, y + 28, 12, 1);
+        Draw.Rectangle(x + 36, y + 26, 12, 1);
+        Draw.Rectangle(x + 36, y + 24, 12, 1);
     }
 }
 
