@@ -113,17 +113,19 @@ public class Game
             goingDown = false;
         }
 
-
+        //Catch Progress bar collision
         if (catchDistance <= 40 && catchDistance >= -40 && catchProgress <= 5.03f)
         {
-            catchProgress += Time.DeltaTime;
+            catchProgress += Time.DeltaTime * 1.3f;
         }
 
+        //Victory code
         if (catchProgress >= 5)
         {
             hasWon = true;
         }
 
+        //Progress goes down when not catching
         if (catchProgress > 0 && hasWon != true)
         {
             catchProgress -= Time.DeltaTime / 2;
@@ -138,6 +140,8 @@ public class Game
         Text.Size = 16;
         Text.Draw("Catch Progress", 260, 24);
 
+
+        //Display victory screen (infront of all other graphics)
         if (hasWon == true)
         {
             Draw.FillColor = cucumber;
